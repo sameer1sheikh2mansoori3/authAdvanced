@@ -13,9 +13,10 @@ let corsOptions = {
 };
 const PORT = process.env.PORT
 const app = express()
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/api/v1/user' , router)
-app.use(cors(corsOptions))
+
 app.get('/' , (req, res)=>{
 
     
