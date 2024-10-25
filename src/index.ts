@@ -8,12 +8,10 @@ dotenv.config({
     path:'./.env'
 })
 connectDB()
-let corsOptions = {
-    origin: [ 'http://localhost:5173', 'http://localhost:3000', '*' ]
-};
+
 const PORT = process.env.PORT
 const app = express()
-app.use(cors(corsOptions))
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json())
 app.use('/api/v1/user' , router)
 
