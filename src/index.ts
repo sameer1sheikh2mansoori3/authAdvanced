@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import z from 'zod'
 import router from './routes/auth.route';
 import { connectDB } from './db/database';
+import cors from "cors";
 dotenv.config({
     path:'./.env'
 })
@@ -12,6 +13,7 @@ const PORT = process.env.PORT
 const app = express()
 app.use(express.json())
 app.use('/api/v1/user' , router)
+app.use(cors())
 app.get('/' , (req, res)=>{
 
     
