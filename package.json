@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "predev": "tsc",
     "dev": "nodemon dist/index.js",
-    "start":"nodemon dist/index.js"
+    "start":"npm dist/index.js"
   },
   "keywords": [],
   "author": "",
