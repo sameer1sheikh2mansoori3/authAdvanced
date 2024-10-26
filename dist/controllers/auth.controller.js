@@ -180,7 +180,9 @@ const resetPassword = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.resetPassword = resetPassword;
 const checkAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log(req.userId, "added userId");
         const user = yield User_model_1.User.findById(req.userId).select("-password");
+        console.log(user, "added user is here");
         if (!user) {
             res.status(400).json({ success: false, message: "User not found" });
             return; // Ensures the function has a `void` return type in this branch

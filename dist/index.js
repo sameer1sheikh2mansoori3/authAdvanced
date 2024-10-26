@@ -8,12 +8,15 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const auth_route_1 = __importDefault(require("./routes/auth.route"));
 const database_1 = require("./db/database");
 const cors_1 = __importDefault(require("cors"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 dotenv_1.default.config({
     path: './.env'
 });
 (0, database_1.connectDB)();
 const PORT = process.env.PORT;
 const app = (0, express_1.default)();
+// Use cookie-parser middleware
+app.use((0, cookie_parser_1.default)());
 // Define allowed origins (without the trailing slash)
 const allowedOrigins = [
     "http://localhost:5173", // No trailing slash

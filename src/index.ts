@@ -4,6 +4,7 @@ import z from 'zod'
 import router from './routes/auth.route';
 import { connectDB } from './db/database';
 import cors from "cors";
+import cookieParser from 'cookie-parser';
 dotenv.config({
     path:'./.env'
 })
@@ -11,10 +12,12 @@ connectDB()
 
 const PORT = process.env.PORT
 const app = express()
+// Use cookie-parser middleware
+app.use(cookieParser());
 
 // Define allowed origins (without the trailing slash)
 const allowedOrigins = [
-    
+
     "http://localhost:5173",  // No trailing slash
       // No trailing slash
     // Add more allowed origins here

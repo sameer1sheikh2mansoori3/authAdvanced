@@ -190,8 +190,9 @@ export const verifyEmail = async (req:any, res:any) => {
 
 export const checkAuth = async (req: CustomRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
+	console.log(req.userId , "added userId")
       const user = await User.findById(req.userId).select("-password");
-
+console.log(user , "added user is here")
       if (!user) {
           res.status(400).json({ success: false, message: "User not found" });
           return; // Ensures the function has a `void` return type in this branch
