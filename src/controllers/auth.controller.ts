@@ -198,7 +198,7 @@ export const checkAuth = async (req: CustomRequest, res: Response, next: NextFun
       }
 
       res.status(200).json({ success: true, user });
-	  next()
+	  
   } catch (error: any) {
       console.log("Error in checkAuth", error);
       res.status(400).json({ success: false, message: error.message });
