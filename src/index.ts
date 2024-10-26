@@ -14,6 +14,7 @@ const app = express()
 
 // Define allowed origins (without the trailing slash)
 const allowedOrigins = [
+    
     "http://localhost:5173",  // No trailing slash
       // No trailing slash
     // Add more allowed origins here
