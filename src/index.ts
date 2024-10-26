@@ -11,7 +11,21 @@ connectDB()
 
 const PORT = process.env.PORT
 const app = express()
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+
+// Define allowed origins (without the trailing slash)
+const allowedOrigins = [
+    "http://localhost:5173",  // No trailing slash
+      // No trailing slash
+    // Add more allowed origins here
+];
+
+// CORS middleware should be configured before routes
+app.use(cors({
+    origin: allowedOrigins,  // Allow specified origins
+    credentials: true,       // Allow cookies or HTTP authentication
+    methods: ["GET", "POST", "PUT", "DELETE"],  // Allowed methods
+}));
+
 app.use(express.json())
 app.use('/api/v1/user' , router)
 
